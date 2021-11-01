@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Blockchain-dBank/static/css/main.18de8aef.chunk.css",
+    "main.js": "/Blockchain-dBank/static/js/main.fb782110.chunk.js",
+    "main.js.map": "/Blockchain-dBank/static/js/main.fb782110.chunk.js.map",
+    "runtime-main.js": "/Blockchain-dBank/static/js/runtime-main.82e5992f.js",
+    "runtime-main.js.map": "/Blockchain-dBank/static/js/runtime-main.82e5992f.js.map",
+    "static/css/2.0c17ed4c.chunk.css": "/Blockchain-dBank/static/css/2.0c17ed4c.chunk.css",
+    "static/js/2.a8f4bdab.chunk.js": "/Blockchain-dBank/static/js/2.a8f4bdab.chunk.js",
+    "static/js/2.a8f4bdab.chunk.js.map": "/Blockchain-dBank/static/js/2.a8f4bdab.chunk.js.map",
+    "index.html": "/Blockchain-dBank/index.html",
+    "precache-manifest.a84b2bb4d2c8dec7666fa30f37daa814.js": "/Blockchain-dBank/precache-manifest.a84b2bb4d2c8dec7666fa30f37daa814.js",
+    "service-worker.js": "/Blockchain-dBank/service-worker.js",
+    "static/css/2.0c17ed4c.chunk.css.map": "/Blockchain-dBank/static/css/2.0c17ed4c.chunk.css.map",
+    "static/css/main.18de8aef.chunk.css.map": "/Blockchain-dBank/static/css/main.18de8aef.chunk.css.map",
+    "static/js/2.a8f4bdab.chunk.js.LICENSE.txt": "/Blockchain-dBank/static/js/2.a8f4bdab.chunk.js.LICENSE.txt",
+    "static/media/dbank.png": "/Blockchain-dBank/static/media/dbank.adca41d3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82e5992f.js",
+    "static/css/2.0c17ed4c.chunk.css",
+    "static/js/2.a8f4bdab.chunk.js",
+    "static/css/main.18de8aef.chunk.css",
+    "static/js/main.fb782110.chunk.js"
+  ]
+}
