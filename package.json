@@ -2,7 +2,7 @@
   "homepage": "https://prajwal208.github.io/Blockchain-dBank",
   "name": "dbank",
   "version": "0.1.0",
-  "description": "Decentralized Bank",
+  "description": "Blockchain dbank",
   "dependencies": {
     "@openzeppelin/contracts": "3.3.0",
     "@truffle/hdwallet-provider": "1.1.0",
