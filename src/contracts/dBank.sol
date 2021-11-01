@@ -1,48 +1,44 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.0 <0.8.0;
+pragma solidity >=0.6.0;
 
 import "./Token.sol";
 
 contract dBank {
 
-  //assign Token contract to variable
+  mapping(address => uint) public etherBalanceOf;
+  mapping(address => uint) public depositeStart;
+  mapping(address => bool) public isDeposited;
 
-  //add mappings
-
-  //add events
-
-  //pass as constructor argument deployed Token contract
-  constructor() public {
-    //assign token deployed contract to variable
+  event Deposite(address indexed user,uint etherAmount, uint timeStart );
+  event Withdraw(address indexed user,uint etherAmount, uint timeStart , uint interset ); 
+  Token private token;
+  
+  constructor(Token _token) public {
+    token = _token;
   }
 
   function deposit() payable public {
-    //check if msg.sender didn't already deposited funds
-    //check if msg.value is >= than 0.01 ETH
-
-    //increase msg.sender ether deposit balance
-    //start msg.sender hodling time
-
-    //set msg.sender deposit status to true
-    //emit Deposit event
+    require(isDeposited[msg.sender] == false,"Account is already active..");
+    require(msg.value >= 1e16,"deposite should be greater than 0.01ETH.." );
+    etherBalanceOf[msg.sender] = etherBalanceOf[msg.sender] + msg.value;
+    depositeStart[msg.sender] = depositeStart[msg.sender] + block.timestamp;
+    isDeposited[msg.sender] = true;
+    emit Deposite(msg.sender, msg.value, block.timestamp);
   }
 
   function withdraw() public {
-    //check if msg.sender deposit status is true
-    //assign msg.sender ether deposit balance to variable for event
-
-    //check user's hodl time
-
-    //calc interest per second
-    //calc accrued interest
-
-    //send eth to user
-    //send interest in tokens to user
-
-    //reset depositer data
-
-    //emit event
-  }
+    require(isDeposited[msg.sender] == true,"Account is not Active...");
+    uint userBalance = etherBalanceOf[msg.sender];
+    uint depositTime = block.timestamp - depositeStart[msg.sender];
+    uint interestPerSecond = 31668017 * (etherBalanceOf[msg.sender]/1e16);
+    uint interest = interestPerSecond * depositTime;
+    msg.sender.transfer(userBalance);
+    etherBalanceOf[msg.sender] = 0;
+    token.mint(msg.sender,interest);
+    isDeposited[msg.sender] = false;
+    depositeStart[msg.sender] = 0;
+    emit Withdraw(msg.sender,userBalance,depositTime,interest);
+    }
 
   function borrow() payable public {
     //check if collateral is >= than 0.01 ETH
